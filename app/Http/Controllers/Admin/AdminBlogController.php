@@ -49,11 +49,12 @@ class AdminBlogController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * 指定したIDのブログを編集する
      */
     public function edit(string $id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+        return view('admin.blogs.edit', ['blog' => $blog]);
     }
 
     /**
