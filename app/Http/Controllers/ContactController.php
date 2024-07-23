@@ -22,7 +22,7 @@ class ContactController extends Controller
         // 登録処理(実際はメール送信などを行う)
         // Log::debug($validated['name'] . 'さんよりお問い合わせがありました');
 
-        Mail::to('admin@example.com')->send(new ContactAdminMail());
+        Mail::to('admin@example.com')->send(new ContactAdminMail($validated));
 
         // リダイレクト
         // return redirect()->route('contact.complete');
