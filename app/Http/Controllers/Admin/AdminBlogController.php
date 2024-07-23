@@ -68,7 +68,7 @@ class AdminBlogController extends Controller
         $updateData = $request->validated();
 
         //　画像を変更する場合
-        if ( $request->has('image')) {
+        if ($request->has('image')) {
             // 変更前の画像を削除
             Storage::disk('public')->delete($blog->image);
             // 新しい画像を保存
@@ -80,10 +80,14 @@ class AdminBlogController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 指定したIDのブログを削除する
      */
     public function destroy(string $id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+        $blog->delete();
+        Storage::disk('public')->delete($blog->image);
+
+        return to_route('admin.blogs.index')->with('success', 'ブログを削除しました');
     }
 }

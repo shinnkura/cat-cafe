@@ -4,7 +4,7 @@
 <section class="py-8">
     <div class="container px-4 mx-auto">
         <div class="py-4 bg-white rounded">
-            <form action="{{route('admin.blogs.update', ['blog' => $blog->id])}}" method="post" enctype="multipart/form-data" >
+            <form action={{route('admin.blogs.update', ['blog' => $blog->id])}} method="post" enctype="multipart/form-data" >
                 @csrf
                 @method('PUT')
                 <div class="flex px-6 pb-4 border-b">
