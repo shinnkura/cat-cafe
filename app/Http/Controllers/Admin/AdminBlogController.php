@@ -54,6 +54,11 @@ class AdminBlogController extends Controller
 
     /**
      * 指定したIDのブログを編集する
+     * 
+     * ルートモデル結合を使用
+     * ・型指定をする際、モデルを指定することで、そのモデルのメソッドを使用できる
+     * ・つまり、BlogモデルのfindOrFailメソッドを使用できる
+     * ・findOrFailメソッドは、指定したIDのデータが存在しない場合、404エラーを返す
      */
     public function edit(Blog $blog)
     {
