@@ -16,7 +16,9 @@ class AdminBlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::latest('updated_at')->limit(10)->get();
+        // $blogs = Blog::latest('updated_at')->paginate(10);
+        // 前後のページのみを表示
+        $blogs = Blog::latest('updated_at')->simplePaginate(10);
         return view('admin.blogs.index', ['blogs' => $blogs]);
     }
 
