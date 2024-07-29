@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\UpdateBlogRequest;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Category;
 
 class AdminBlogController extends Controller
 {
@@ -62,9 +63,10 @@ class AdminBlogController extends Controller
      */
     public function edit(Blog $blog)
     {
+        $categories = Category::all();
         // $blog = Blog::findOrFail($id);
         // return view('admin.blogs.edit', ['blog' => $blog]);
-        return view('admin.blogs.edit', ['blog' => $blog]);
+        return view('admin.blogs.edit', ['blog' => $blog, 'categories' => $categories]);
     }
 
     /**
