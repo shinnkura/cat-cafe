@@ -35,3 +35,5 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
     Route::post('/login', [AuthController::class, 'login']);
 });
+
+Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
