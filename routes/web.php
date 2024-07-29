@@ -32,7 +32,7 @@ Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users
 // Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
 // Route::post('/admin/login', [AuthController::class, 'login']);
 Route::prefix('admin')->namespace('Admin')->group(function () {
-    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('admin.login')->middleware('guest');
     Route::post('/login', [AuthController::class, 'login']);
 });
 
